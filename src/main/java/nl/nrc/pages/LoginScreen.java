@@ -1,34 +1,67 @@
 package nl.nrc.pages;
 
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.remote.MobileCapabilityType;
+import nl.nrc.utils.DriverSetup;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 
 public class LoginScreen {
-    private AndroidDriver<AndroidElement> driver;
 
-    public LoginScreen() {
-
-    }
     // Element locators
-    private By usernameField = By.id("username");
-    private By passwordField = By.id("password");
-    private By loginButton = By.id("login_button");
-
+    private final By emailField = By.id("nl.nrc.audio:id/email");
+    private final By passwordField = By.id("nl.nrc.audio:id/password");
+    private final By newsLetterCheckbox = By.id("nl.nrc.audio:id/additionalNewsLetterCheckbox");
+    private final By forgotPasswordLink = By.id("nl.nrc.audio:id/forgotPassword");
+    private final By loginButton = By.id("nl.nrc.audio:id/loginButton");
 
 
     // Page actions
+    public void assertEmailField() {
+        try{
+            System.out.println("Validating Email Field");
+            DriverSetup.getDriver().findElement(emailField);
+        } catch (NoSuchElementException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void assertPasswordField() {
+        try{
+            System.out.println("Validating Password Field");
+            DriverSetup.getDriver().findElement(passwordField);
+        } catch (NoSuchElementException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void assertLoginButton() {
+        try {
+            System.out.println("Validating Login button");
+            DriverSetup.getDriver().findElement(loginButton);
+        } catch (NoSuchElementException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    // Write code to validate other elements
+
     public void enterUsername(String username) {
-        driver.findElement(usernameField).sendKeys(username);
+        try{
+            DriverSetup.getDriver().findElement(emailField).sendKeys(username);
+        } catch (NoSuchElementException e) {
+            throw new RuntimeException(e);
+        }
     }
-
     public void enterPassword(String password) {
-        driver.findElement(passwordField).sendKeys(password);
+        try {
+            DriverSetup.getDriver().findElement(passwordField).sendKeys(password);
+        } catch (NoSuchElementException e) {
+            throw new RuntimeException(e);
+        }
     }
-
     public void clickLoginButton() {
-        driver.findElement(loginButton).click();
+        try{
+            System.out.println("Tapping on Login button");
+            DriverSetup.getDriver().findElement(loginButton).click();
+        } catch (NoSuchElementException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

@@ -8,12 +8,11 @@ public class WelcomeScreenTests {
     @Given("the user is on the welcome screen")
     public void theUserIsOnTheWelcomeScreen() {
         // Validate the welcome screen based on the presence of create account button
-        // To Do: Try Visual Validation using appium/packages/images-plugin/
         welcomeScreen.assertCreateAccountButton();
+        // To Do: Try Visual Validation using appium/packages/images-plugin/
     }
     @When("the user taps on the create account button")
     public void theUserTapsOnTheCreateAccountButton() {
-
         // Click the "Create Account" button
         welcomeScreen.clickCreateAccountButton();
     }
@@ -24,6 +23,7 @@ public class WelcomeScreenTests {
 
     @When("the user taps on the login button")
     public void theUserTapsOnTheLoginButton() {
+
     }
 
     @Then("the user is taken to the login screen")

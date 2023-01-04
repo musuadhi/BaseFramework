@@ -2,36 +2,44 @@ package nl.nrc.stepdefinitions.useraccounts;
 import io.cucumber.java.en.*;
 import nl.nrc.pages.LoginScreen;
 import nl.nrc.pages.WelcomeScreen;
-
 public class LoginTests {
     // Initialize the WelcomeScreen and LoginScreen objects
     WelcomeScreen welcomeScreen = new WelcomeScreen();
     LoginScreen loginScreen = new LoginScreen();
-    @Given("user sees login screen")
+    @Given("the user is on login screen")
     public void userSeesLoginScreen() {
-        // Make assertion of Login Button
+        // Validate Welcome screen by checking for login button
         welcomeScreen.assertLoginButton();
-        // Click the "Create Account" button
+        // Click the "Login button" button
         welcomeScreen.clickLoginButton();
+        // Validate Login screen by checking for email text box
+        loginScreen.assertEmailField();
     }
 
-    @When("user enters valid user id")
-    public void userEntersValidUserId() {
+    @When("the user enters valid user id as {string}")
+    public void userEntersValidUserIdAs(String arg0) {
+        loginScreen.enterUsername(arg0);
     }
 
-    @And("user enters valid password")
-    public void userEntersValidPassword() {
+    @And("the user enters valid password as {string}")
+    public void userEntersValidPasswordAs(String arg0) {
+        loginScreen.enterPassword(arg0);
     }
 
-    @Then("user sees app discovery screen")
+    @And("the user taps on the Inloggen button")
+    public void theUserTapsOnTheLoginButton() {
+        loginScreen.clickLoginButton();
+    }
+    @Then("the user sees app discovery screen")
     public void userSeesAppDiscoveryScreen() {
+        // Write code to validate the App home screen
     }
 
-    @And("user enters invalid password")
+    @And("the user enters invalid password")
     public void userEntersInvalidPassword() {
     }
 
-    @Then("user sees error message")
+    @Then("the user sees error message")
     public void userSeesErrorMessage() {
     }
 }

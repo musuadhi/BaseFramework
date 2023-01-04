@@ -4,8 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 
 public class WelcomeScreen {
-    public WelcomeScreen() {
-    }
+
     // Element locators
     private final By loginButton = By.id("nl.nrc.audio:id/loginButton");
     private final By createAccountButton = By.id("nl.nrc.audio:id/registerButton");
@@ -19,14 +18,6 @@ public class WelcomeScreen {
             throw new RuntimeException(e);
         }
     }
-    public void clickCreateAccountButton() {
-        try{
-            System.out.println("Tapping on Create Account button");
-            DriverSetup.getDriver().findElement(createAccountButton).click();
-        } catch (NoSuchElementException e){
-            throw new RuntimeException(e);
-        }
-    }
     public void assertLoginButton() {
         try{
             System.out.println("Validating Login button");
@@ -35,6 +26,15 @@ public class WelcomeScreen {
             throw new RuntimeException(e);
         }
     }
+    public void clickCreateAccountButton() {
+        try{
+            System.out.println("Tapping on Create Account button");
+            DriverSetup.getDriver().findElement(createAccountButton).click();
+        } catch (NoSuchElementException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public void clickLoginButton() {
         try{
             System.out.println("Tapping on Login button");
