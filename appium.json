@@ -1,0 +1,8 @@
+{
+  "appium": {
+    "usePlugins": [
+      "element-wait",
+      "logs"
+    ]
+  }
+}
