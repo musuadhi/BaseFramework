@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout code to GitHub Actions runner
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
       - name: Set up JDK 11 on the ubuntu runner
         uses: actions/setup-java@v3
         with:
