@@ -35,7 +35,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: ./gradlew test --rerun-tasks --info
+          script: ./gradlew test --rerun-tasks --info -X --console=plain
 
       #- name: Check connected devices
         #run: adb devices
