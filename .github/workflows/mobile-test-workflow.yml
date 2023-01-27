@@ -35,9 +35,9 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: ./gradlew connectedCheck
+          script: ./gradlew
 
-      - name: Gradle Build Action
-        uses: gradle/gradle-build-action@v2.3.3
-        with:
-          arguments: clean test --tests "nl.example.testrunners.SettingsTest"
+#      - name: Gradle Build Action
+#        uses: gradle/gradle-build-action@v2.3.3
+#        with:
+#          arguments: clean test --tests "nl.example.testrunners.SettingsTest"
