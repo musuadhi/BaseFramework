@@ -5,7 +5,7 @@ name: BDD Test Framework (Cucumber+Junit CI with Gradle)
 
 on:
   push:
-    branches: [ "settingsbattery", "main" ]
+    branches: [ "main" ]
 
   #permissions:
   #contents: read

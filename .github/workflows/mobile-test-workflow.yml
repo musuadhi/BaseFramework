@@ -5,7 +5,7 @@ name: Test automation workflow for mobile apps
 
 on:
   push:
-    branches: [ "settingsbattery", "main" ]
+    branches: [ "settingsbattery" ]
 
   #permissions:
   #contents: read
@@ -33,10 +33,13 @@ jobs:
 
       - name: run android tests
         uses: reactivecircus/android-emulator-runner@v2
+        run: adb devices
         with:
           api-level: 29
           script: ./gradlew
 
+      - name: Check connected devices
+        run: adb devices
 #      - name: Gradle Build Action
 #        uses: gradle/gradle-build-action@v2.3.3
 #        with:
